@@ -1,16 +1,141 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>quartz.web.admin</groupId>
-  <artifactId>all</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>quartz-web-admin</name>
-  <description>websocket+quartz</description>
-  
-  
-  <modules>
-  	<module>web</module>
-  </modules>
-  
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>quartz.web.admin</groupId>
+	<artifactId>all</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>quartz-web-admin</name>
+	<description>websocket+quartz</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
+		<junit.version>4.8.2</junit.version>
+		<svnkit.version>1.8.3</svnkit.version>
+		<connector-J.version>5.1.30</connector-J.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<jackson.version>1.9.13</jackson.version>
+		<io.netty.version>4.0.21.Final</io.netty.version>
+		<slf4j-api.version>1.7.7</slf4j-api.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j-log4j12.version>1.7.7</slf4j-log4j12.version>
+		<javassist.version>3.18.2-GA</javassist.version>
+		<quartz.version>2.2.1</quartz.version>
+	</properties>
+
+	<modules>
+		<module>web</module>
+		<module>quartz-server-node</module>
+	</modules>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- JUnit Test -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- Slf4j -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+			<!-- Log4j -->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<!-- Slf4j binding Log4j_1.2 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j-log4j12.version}</version>
+			</dependency>
+
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- JUnit Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<!-- Slf4j binding Log4j_1.2 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<tagBase>https://github.com/weijia32167/Quartz-Admin-Web/tags</tagBase>
+						<branchBase>https://github.com/weijia32167/Quartz-Admin-Web/branches</branchBase>
+					</configuration>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+
+
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4.1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
 </project>
