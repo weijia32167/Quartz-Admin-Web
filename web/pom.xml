@@ -17,6 +17,7 @@
   <parent>
   	<groupId>quartz.web.admin</groupId>
   	<artifactId>all</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
   </parent>
   
 
