@@ -6,4 +6,11 @@
   <packaging>pom</packaging>
   <name>quartz-web-admin</name>
   <description>websocket+quartz</description>
+  
+  
+  <modules>
+  	<module>web</module>
+  </modules>
+  
+  
 </project>
